@@ -1,0 +1,37 @@
+model:
+  c: 4
+  c_out: 128
+  n: None
+  new_generator: False  # if False, the model will use the old generator
+  pth: None  # if you want to train the model, you can load the model.pkl
+
+data:
+  file_path: data_path.csv  # path to the dataset
+  input_height: 128
+  input_weight: 128
+  use_oct: True  # use tif as additional information (True or False)
+  test_size: 0.2
+  shuffle: False  # if shuffle is True, data won't be trained in order(Order of the file in the folder). (True or False)
+  seed: None  # if shuffle is True, you can set the random seed to make sure each training to get the same result.
+
+train:
+  epochs: 800
+  cuda: [0]
+  batch_size: 1
+  save_period: 50  # save the result every save_period epochs.
+  save_iter_per_epoch: 4  # During an epoch, save the images every 4 iteration.
+  lr_0_G: 0.001
+  lr_f_G: 0.001  # final learning rate of generator, which is lr_0 * lr_f
+  lr_0_D: 0.001
+  lr_f_D: 0.001  # final learning rate of discriminator, which is lr_0 * lr_f
+  step_size: 1  # After step_size epochs, learning rate will be updated.
+  optim_G: Adam
+  optim_G_parameters: None  # additional parameters e.g. [(0.9, 0.999)]
+  optim_D: Adam
+  optim_D_parameters: None
+  stop_iter: 100  # if the model cannot improve anymore after stop_iter epochs, it will stop training automatically.
+
+project:
+  name: None
+  save_dir: result
+  train: True

@@ -1,0 +1,7 @@
+basicsr==1.4.2
+matplotlib==3.8.4
+pytz==2024.1
+torchsummary==1.5.1
+joblib==1.4.2
+pytorch_ssim==0.1
+tensorboardX==2.6.2.2

@@ -1,0 +1,22 @@
+model:
+  c:
+  - 4
+  - 64
+  - 128
+  - 256
+  - 512
+  - 512
+  c_out:
+  - 128
+  - 128
+  - 128
+  - 256
+  - 512
+  - 512
+  n: 3
+  new_generator: true
+  pth: /data/student/ljb/iMED/result_new_512/train0/epoch100/model/model_val.pth
+project:
+  name: test
+  save_dir: test
+  train: false

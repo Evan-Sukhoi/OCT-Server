@@ -1,0 +1,13 @@
+model:
+  c: [3, 64, 128, 256, 512]
+  c_out: [128, 128, 128, 256, 512]
+  n: 3
+  new_generator: True  # if False, the model will use the old generator
+  pth: iMED//result_show/result_show0/epoch240/model/model_val.pth # if you want to train or test the model, you can load the model.pkl
+data:
+  use_oct: False
+
+project:
+  name: test_show
+  save_dir: test_show
+  train: False
