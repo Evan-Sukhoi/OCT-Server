@@ -8,6 +8,10 @@ from basicsr.utils.download_util import load_file_from_url
 from realesrgan import RealESRGANer
 from realesrgan.archs.srvgg_arch import SRVGGNetCompact
 
+def get_number_from_filename(filename):
+    # 从文件名中提取结尾的数字
+    return int(''.join(filter(str.isdigit, os.path.basename(filename))))
+
 
 def deblur(model_path, input_folder, output_path):
     print('Deblurring...')
@@ -37,8 +41,8 @@ def deblur(model_path, input_folder, output_path):
         gpu_id=gpu_id)
 
     os.makedirs(output_path, exist_ok=True)
-
-    for idx, path in enumerate(sorted(glob.glob(os.path.join(input_folder, '*')))):
+    sorted_files = sorted(glob.glob(os.path.join(input_folder, '*.png')), key=get_number_from_filename)
+    for idx, path in enumerate(sorted_files):
         imgname, extension = os.path.splitext(os.path.basename(path))
         print('Testing', idx, imgname)
 
