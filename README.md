@@ -38,11 +38,11 @@ Go into the install location of your anaconda, open file following the relative 
 ```
 Anaconda\envs\oct\Lib\site-packages\basicsr\data\degradations.py
 ```
-change the following line from 
+Change the following line from 
 ```
 from torchvision.transforms.functional_tensor import rgb_to_grayscale
 ```
-to
+To
 ```
 from torchvision.transforms.functional_tensor import rgb_to_grayscale
 ```
