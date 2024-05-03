@@ -31,6 +31,22 @@ pip install -r requirements.txt
 python Regan/setup.py develop
 ```
 
+### 5. Set edition problem
+
+Go into the install location of your anaconda, open file following the relative path
+
+```
+Anaconda\envs\oct\Lib\site-packages\basicsr\data\degradations.py
+```
+change the following line from 
+```
+from torchvision.transforms.functional_tensor import rgb_to_grayscale
+```
+to
+```
+from torchvision.transforms.functional_tensor import rgb_to_grayscale
+```
+
 ## Run
 
 Run `server.py` in the conda env you just created.
