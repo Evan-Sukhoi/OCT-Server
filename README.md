@@ -33,7 +33,7 @@ python Regan/setup.py develop
 ```
 ### 5. Load paramater
 
-Put the file `net_g_1000000.pth` to the relative path  'Regan\models\net_g_1000000.pth'
+Put the file `net_g_1000000.pth` to the relative path  `Regan\models\net_g_1000000.pth`
 
 ### 6. Set edition problem
 
