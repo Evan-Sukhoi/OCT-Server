@@ -5,3 +5,5 @@ torchsummary==1.5.1
 joblib==1.4.2
 pytorch_ssim==0.1
 tensorboardX==2.6.2.2
+scikit-learn==1.4.2
+pandas==2.2.2
