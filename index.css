@@ -19,7 +19,9 @@
      font-size: 40px;
      line-height: 10vh;
      position: relative;
-     left: 34.5%;
+     left: 18%;
+     font-family: SimSun;
+     font-weight: bold;
  }
 
  footer {
@@ -28,6 +30,7 @@
      background-blend-mode: multiply, multiply;
      text-align: center;
      line-height: 10vh;
+     font-family: Sans-serif;
  }
 
  .main {
