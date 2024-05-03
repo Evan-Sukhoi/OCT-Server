@@ -33,7 +33,7 @@ python Regan/setup.py develop
 
 ### 5. Set edition problem
 
-Go into the install location of your anaconda, open file following the relative path
+Go into the install location of your anaconda, open file by following the relative path
 
 ```
 Anaconda\envs\oct\Lib\site-packages\basicsr\data\degradations.py
