@@ -1,0 +1,22 @@
+data:
+  use_oct: false
+model:
+  c:
+  - 3
+  - 64
+  - 128
+  - 256
+  - 512
+  c_out:
+  - 128
+  - 128
+  - 128
+  - 256
+  - 512
+  n: 3
+  new_generator: true
+  pth: iMED//result_show/result_show0/epoch240/model/model_val.pth
+project:
+  name: test_show
+  save_dir: test_show
+  train: false

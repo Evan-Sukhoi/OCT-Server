@@ -1,17 +1,13 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import os
 import io
+import threading
 import random
 import string
 from PIL import Image
 import cgi
-from PIL import ImageEnhance
-import time
-
-import torch
 from PIL import Image
 import torchvision.transforms as transforms
-from matplotlib import pyplot as plt
 
 from iMED.build.CTTIF import CTTIF
 from Regan import inference_realesrgan
@@ -26,7 +22,7 @@ model_2_path = 'Regan/models/net_g_1000000.pth'
 stage_1_output_path = 'iMED/test_images/modetest'
 
 def stage_1(input_path_cf):
-    print(input_path_cf)
+    # print(input_path_cf)
     image_transform = transforms.Compose([
         transforms.Resize((128, 128)),  
         transforms.ToTensor(),
@@ -94,15 +90,18 @@ class MyServer(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == '/generateImages':
             print("Generating images...")
-            self.process_image(os.path.join(MyServer.task_path, MyServer.cf_file_name), \
-                                os.path.join(MyServer.task_path, MyServer.oct_file_name), \
-                                os.path.join(MyServer.task_path, 'processed'))
             self.send_response(200)
             self.send_header('Content-type', 'text/html')
             self.end_headers()
-            for file_name in os.listdir(os.path.join(MyServer.task_path, 'processed')):
-                with open(os.path.join(MyServer.task_path, 'processed', file_name), 'rb') as f:
-                    self.wfile.write(f.read())
+            self.wfile.write(f"{MyServer.task_path}/processed".encode())
+            threading.Thread(target=self.process_image, args=(
+                os.path.join(MyServer.task_path, MyServer.cf_file_name),
+                os.path.join(MyServer.task_path, MyServer.oct_file_name),
+                os.path.join(MyServer.task_path, 'processed')
+            )).start()
+            # for file_name in os.listdir(os.path.join(MyServer.task_path, 'processed')):
+            #     with open(os.path.join(MyServer.task_path, 'processed', file_name), 'rb') as f:
+            #         self.wfile.write(f.read())
         elif self.path == '/':
             self.send_response(200)
             self.send_header('Content-type', 'text/html')
@@ -113,6 +112,8 @@ class MyServer(BaseHTTPRequestHandler):
             self.send_response(404)
             self.end_headers()
             self.wfile.write("Not found".encode())
+            
+        print("finished GET request")
             
 
     def process_image(self, input_cf, input_oct, output_path):
