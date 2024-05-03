@@ -121,9 +121,9 @@ submit.addEventListener('click', function () {
             cfXhr.open('POST', 'http://localhost:8080/uploadCF', true);
             cfXhr.onload = function () {
                 if (cfXhr.status == 200) {
-                    alert('CF Image uploaded successfully');
+                    alert('成功上传CF图片');
                 } else {
-                    alert('Error uploading CF image');
+                    alert('上传CF图片失败');
                 }
             };
 
@@ -131,7 +131,7 @@ submit.addEventListener('click', function () {
                 if (nameXhr.status == 200) {
                     cfXhr.send(cfFormData);
                 } else {
-                    alert('Error uploading name');
+                    alert('上传名称失败');
                 }
             };
 
@@ -269,7 +269,7 @@ submit.addEventListener('click', function () {
                             if (i < 127) { // 继续下一次查询
                                 checkFileStatusAndContinue(i + 1);
                             } else {
-                                alert("all oct imgs build successfully")
+                                alert("所有的OCT已生成")
                             }
                         } catch (error) {
                             console.log("202");
@@ -287,11 +287,11 @@ submit.addEventListener('click', function () {
                 // xhr.send();
             }, 1000)
         } else {
-            window.alert("Please select the cf picture")
+            window.alert("请选择CF图片")
         }
 
     } else {
-        window.alert("Please select the cf picture")
+        window.alert("请选择CF图片")
     }
 })
 
