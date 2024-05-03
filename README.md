@@ -29,7 +29,6 @@ pip install -r requirements.txt
 
 ```
 python Regan/setup.py develop
-
 ```
 ### 5. Put paramater
 
