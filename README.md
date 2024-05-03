@@ -45,7 +45,7 @@ Change the following line from
 ```
 from torchvision.transforms.functional_tensor import rgb_to_grayscale
 ```
-To
+to
 ```
 from torchvision.transforms._functional_tensor import rgb_to_grayscale
 ```
