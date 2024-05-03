@@ -29,9 +29,13 @@ pip install -r requirements.txt
 
 ```
 python Regan/setup.py develop
-```
 
-### 5. Set edition problem
+```
+### 5. Load paramater
+
+Put the file `net_g_1000000.pth` to the relative path  'Regan\models\net_g_1000000.pth'
+
+### 6. Set edition problem
 
 Go into the install location of your anaconda, open file by following the relative path
 
