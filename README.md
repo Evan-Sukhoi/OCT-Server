@@ -4,7 +4,7 @@
 
 This repository is the web server of the research project ***OCT 3D Image Reconstruction Based on 2D Color Fundus***.
 
-Before running, follow the steps below to setup the environment. Make sure you have installed conda already, and your GPU cuda 
+Before running, follow the steps below to setup the environment. Make sure you have installed conda already, and your GPU has cuda. Or you need to install CPU version PyTorch.
 
 ### 1. Create conda environment with python 3.11
 
@@ -30,9 +30,9 @@ pip install -r requirements.txt
 ```
 python Regan/setup.py develop
 ```
-### 5. Put paramater
+### 5. Set model
 
-Put the file `net_g_1000000.pth` to the relative path  `Regan\models\net_g_1000000.pth`
+Put the file `net_g_1000000.pth` to the relative folder  `Regan\models`
 
 ### 6. Solve edition problem
 
